@@ -34,7 +34,7 @@ $ pnpm install
 $ Crie um arquivo .env e modifique as strings
 
 # Sua conexão com o Banco de Dados
-DATABASE_URL="mysql://USUÁRIO:SENHA@HOST:PORTA/DB"
+DATABASE_URL="mysql://USER:PASSWORD@HOST:PORT/DB"
 
 # Sua senha do Token JWT
 JWT_SECRET="SenhaSecretaAqui"
