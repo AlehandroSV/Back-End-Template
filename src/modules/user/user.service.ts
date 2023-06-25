@@ -34,7 +34,19 @@ export class UserService {
     };
   }
 
-  findOne(id: string) {
-    return `This action returns a #${id} user`;
+  async findOne(id: string) {
+    try {
+      const user = await this.prisma.user.findUniqueOrThrow({ where: { id } });
+
+      return {
+        ...user,
+        password: undefined,
+      };
+    } catch (error) {
+      throw new HttpException(
+        { message: 'Usuário não encontrado' },
+        HttpStatus.BAD_REQUEST,
+      );
+    }
   }
 }
